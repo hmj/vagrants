@@ -4,6 +4,9 @@ Ubuntu14.04にpyenv, Anaconda, MeCab をインストールした Python3の仮�
 
 # 確認した環境
 
+- Mac OS X
+- Memory : 6GB 以上が望ましい
+
 ## Virtualbox
 
 バージョン 5.0.12 r104815
@@ -30,13 +33,16 @@ Ansible サーバー(node1)と、Ansible に制御される側の2台のサー�
 # 準備1
 
 適当なディレクトリを作った後、下記のようなファイル構成まで準備します。
-```sh
-
+```bash
+.
+├── Vagrantfile
+├── hosts
+└── ssh_config
 ```
 
 はじめに、
 
-```sh
+```bash
 $ vagrant init ubuntu1404
 ```
 Vagrantfileファイルを作成します。
@@ -95,17 +101,15 @@ $ scp -F ssh_config .vagrant/machines/node2/virtualbox/private_key node1:.ssh/id
 
 # 準備2
 
-node1 から ansible を
+node1 から ansible を実行する。
 
 ```sh
+$ vagrant ssh node1
+
 (node1) $ git clone https://gist.github.com/8e338a040b42685bd445.git playbook
 
 (node1) $ ansible-playbook -i ../../vagrant/hosts playbook/mypython.yml --check
 
 (node1) $ ansible-playbook -i ../../vagrant/hosts playbook/mypython.yml
 ```
-
-
-
-
 
