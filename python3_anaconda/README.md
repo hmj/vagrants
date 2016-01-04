@@ -71,8 +71,31 @@ end
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get -y install ansible
+sudo apt-get -y install git ansible
 ```
 のような内容です。
+
+編集が終わったら
+```sh
+$ vagrant up
+```
+起動します。
+
+Ansible で node1 から node2 へ ssh するための準備をします。
+```sh
+$ vagrant ssh-config node1 > ssh_config
+$ scp -F ssh_config .vagrant/machines/node2/virtualbox/private_key node1:.ssh/id_rsa
+```
+
+# 準備2
+
+node1 から ansible を
+
+```sh
+$ git clone https://gist.github.com/8e338a040b42685bd445.git playbook
+```
+
+
+
 
 
