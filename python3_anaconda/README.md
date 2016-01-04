@@ -87,6 +87,8 @@ Vagrant.configure(2) do |config|
 end
 ```
 
+メモリ割り当てを2GBにする理由は、mecab-ipadic-neologdをインストールすることが可能となるため。
+
 編集が終わったら
 ```sh
 $ vagrant up
