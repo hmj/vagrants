@@ -92,7 +92,11 @@ $ scp -F ssh_config .vagrant/machines/node2/virtualbox/private_key node1:.ssh/id
 node1 から ansible を
 
 ```sh
-$ git clone https://gist.github.com/8e338a040b42685bd445.git playbook
+(node1) $ git clone https://gist.github.com/8e338a040b42685bd445.git playbook
+
+(node1) $ ansible-playbook -i ../../vagrant/hosts playbook/mypython.yml --check
+
+(node1) $ ansible-playbook -i ../../vagrant/hosts playbook/mypython.yml
 ```
 
 
