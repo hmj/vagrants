@@ -46,13 +46,25 @@ Vagrantfileファイルを作成します。
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+$setup = <<SCRIPT
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get -y install git
+sudo apt-get -y install ansible
+SCRIPT
+
 Vagrant.configure(2) do |config|
   config.vm.define :node1 do |node|
     node.vm.box = "ubuntu1404"
     node.vm.network :forwarded_port, guest: 22, host: 2001, id: "ssh"
     node.vm.network :private_network, ip: "192.168.33.11"
 
-    node.vm.provision :shell, path: "provision.sh"
+    #node.vm.provision :shell, path: "provision.sh"
+    node.vm.provision "shell", inline: $setup
+
+    node.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--memory", "512"]
+    end
   end
 
   config.vm.define :node2 do |node|
@@ -60,20 +72,14 @@ Vagrant.configure(2) do |config|
     node.vm.network :forwarded_port, guest: 22, host: 2002, id: "ssh"
     node.vm.network :forwarded_port, guest: 80, host: 8000, id: "http"
     node.vm.network :private_network, ip: "192.168.33.12"
+
+    node.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--memory", "2048"]
+    end
   end
 
 end
 ```
-
-`provision.sh` は、
-```sh
-#!/bin/sh
-
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get -y install git ansible
-```
-のような内容です。
 
 編集が終わったら
 ```sh
