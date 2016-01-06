@@ -5,7 +5,7 @@
 - Virtualbox : 5.0.12 r104815
 - Vagrant : Vagrant 1.7.4
 
-# 0 VagrantでUbuntu14.04環境を作成する
+### 0. VagrantでUbuntu14.04環境を作成する
 所要時間目安:30分
 ```bash
 vagrant box add ubuntu1404 https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box
@@ -15,7 +15,7 @@ cd ubuntu
 vagrant init ubuntu1404
 ```
 
-# 1 pyenvでAnacondaをインストールする
+### 1. pyenvでAnacondaをインストールする
 
 ```bash
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
@@ -34,7 +34,7 @@ pyenv rehash
 pyenv global anaconda3-2.2.0
 ```
 
-# 2 Mecab をインストールする
+### 2. Mecab をインストールする
 
 ```bash
 sudo apt-get install libmecab-dev
@@ -46,7 +46,7 @@ pip install mecab-python3
 python -c "import MeCab"
 ```
 
-# 3 mecab-ipadic-neologd をインストールする
+### 3. mecab-ipadic-neologd をインストールする
 
 詳細は[neologd](https://github.com/neologd/mecab-ipadic-neologd/blob/master/README.ja.md)を参照。
 
