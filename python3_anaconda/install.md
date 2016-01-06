@@ -56,3 +56,4 @@ sudo aptitude install mecab libmecab-dev mecab-ipadic-utf8 git make curl xz-util
 git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
 ```
 
+以下 https://github.com/neologd/mecab-ipadic-neologd/blob/master/README.ja.md#mecab-ipadic-neologd-のインストール更新 を参照ください。
