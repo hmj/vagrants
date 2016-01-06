@@ -15,6 +15,19 @@ cd ubuntu
 vagrant init ubuntu1404
 ```
 
+最終的なファイル構成
+```
+.
+├── Vagrantfile
+├── hosts
+└── provisioning
+    ├── hosts
+    ├── mypython.yml
+    ├── provision.sh
+    └── simple.yml
+
+```
+
 ### 1. pyenvでAnacondaをインストールする
 
 ```bash
