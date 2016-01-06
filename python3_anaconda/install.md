@@ -1,6 +1,12 @@
 
-# 0
+# 動作環境
 
+- MAC OS X Yosemite 10.10.5
+- Virtualbox : 5.0.12 r104815
+- Vagrant : Vagrant 1.7.4
+
+# 0
+所要時間目安:30分
 ```bash
 vagrant box add ubuntu1404 https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box
 
