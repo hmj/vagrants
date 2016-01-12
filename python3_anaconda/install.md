@@ -5,7 +5,7 @@
 - Virtualbox : 5.0.12 r104815
 - Vagrant : Vagrant 1.7.4
 
-### 0. VagrantでUbuntu14.04環境を作成する
+### VagrantでUbuntu14.04環境を作成する
 所要時間目安:30分
 ```bash
 vagrant box add ubuntu1404 https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box
@@ -18,17 +18,38 @@ vagrant init ubuntu1404
 最終的なファイル構成
 ```
 .
-├── Vagrantfile
-├── hosts
-└── provisioning
-    ├── hosts
-    ├── mypython.yml
-    ├── provision.sh
-    └── simple.yml
+└── Vagrantfile
 
 ```
 
+### vagrant コマンドの補足
+
+仮想環境の起動
+```bash
+vagrant up
+```
+
+仮想環境の停止
+```bash
+vagrant halt
+```
+
+仮想環境の削除
+```bash
+vagrant destroy
+```
+
+仮想環境へのログイン
+```bash
+vagrant ssh
+```
+
 ### 1. pyenvでAnacondaをインストールする
+
+pyenvに必要なライブラリをインストールする。
+```bash
+sudo apt-get install git gcc g++ make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev
+```
 
 ```bash
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
